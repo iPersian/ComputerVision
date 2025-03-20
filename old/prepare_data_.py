@@ -7,8 +7,8 @@ import skimage
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
-csv_path = Path("gt.csv")
-zip_path = Path("jpegs")
+csv_path = Path("../gt.csv")
+zip_path = Path("../jpegs")
 save_path = Path("patches")
 
 save_path.mkdir(parents=True, exist_ok=True)

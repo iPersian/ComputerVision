@@ -57,7 +57,7 @@ if __name__ == "__main__":
     seed_all(42)
     train_folder = Path("patches/train")
     val_folder = Path("patches/validation")
-    class_map_f = Path("data/class_map.txt")
+    class_map_f = Path("../data/class_map.txt")
     model_save_path = Path("./models")
     model_save_path.mkdir(parents=True, exist_ok=True)
     log_path = Path("./logs")

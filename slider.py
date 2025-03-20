@@ -3,6 +3,10 @@ import numpy as np
 from tkinter.filedialog import askopenfilenames
 
 
+"""
+Slider application for automatically extract masks
+"""
+
 paths = askopenfilenames()
 images = []
 

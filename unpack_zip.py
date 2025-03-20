@@ -4,15 +4,22 @@ from tqdm import tqdm
 from PIL import Image
 
 
-path = Path("jpegs")
-save_path = Path("jpegs_small")
+path = Path("jpegs") # Path of jpegs
+save_path = Path("jpegs_small") # Save path
 save_path.mkdir(parents=True, exist_ok=True)
 
 
-def resize_image(image_path, size=(224, 224)):
+def resize_image(image_path: Image, size: tuple[int, int] = (224, 224)):
+    """
+    Resizes image.
+    :param image_path: Path of image
+    :param size: Size to resize
+    :return: None
+    """
     with Image.open(image_path) as img:
         img_resized = img.resize(size)
         img_resized.save(image_path)
+    return
 
 
 if __name__ == "__main__":
