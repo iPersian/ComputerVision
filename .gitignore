@@ -1,3 +1,7 @@
 /jpegs
 /jpegs_small
 /masks_small
+/.ipynb_checkpoints
+*.pth
+/runs
+/.idea
