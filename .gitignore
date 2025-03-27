@@ -4,4 +4,6 @@
 /.ipynb_checkpoints
 *.pth
 /runs
-/.idea
+.idea/*
+*.zip
+*/__pycache__
