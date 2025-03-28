@@ -9,6 +9,7 @@ How can our custom UNet model be used to predict weed growth from temporal image
 
 
 Sub-questions:
+
 (1) How does using sequential image data affect the UNet's accuracy in predicting future weed growth?
 
 (2) How does the accuracy change when using one input image compared to three temporal input images?
