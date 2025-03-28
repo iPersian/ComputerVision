@@ -5,7 +5,8 @@ Weed management is crucial for modern agriculture due to the ability of unregula
 
 Main research question:
 How can deep learning models be used to predict weed growth from temporal image data?
-How can our custom UNet model be used to predict weed growth from temporal image data?
+
+How can our (transformer-based / custom ) model be used to predict weed growth from temporal image data?
 
 
 Sub-questions:
