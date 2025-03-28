@@ -1,4 +1,4 @@
-# Hybrid Deep Learning for Weed Growth Prediction from Temporal Image Data
+# Hybrid Deep Learning for Weed Growth Prediction
 
 ## Introduction
 
@@ -12,7 +12,7 @@ We started with a broad set of questions on deep learning for weed growth predic
 
 | **Main Research Question** |
 |-----------------------------|
-| How can a hybrid deep learning model that combines CNN encoders and transformer-based modules be optimized to predict future weed growth from temporal image data? |
+| How can a hybrid deep learning model that combines CNN encoders and transformer-based modules be optimized to predict future weed growth? (from temporal image data? |
 
 | **Sub-questions** |
 |-------------------|
