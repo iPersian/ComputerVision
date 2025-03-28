@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Weed management is a critical issue in modern agriculture. Unregulated weed growth can severely reduce crop yields, and conventional methods—relying on manual labor or widespread herbicide use—are both time-consuming and environmentally damaging. While most existing approaches focus on detecting and classifying weeds in static images, few tackle the challenge of modeling the spatiotemporal dynamics of weed growth.
+Weed management is a critical issue in modern agriculture. Unregulated weed growth can severely reduce crop yields, and conventional methods, relying on manual labor or widespread herbicide use, are both time-consuming and environmentally damaging. While most existing approaches focus on detecting and classifying weeds in static images, few tackle the challenge of modeling the spatiotemporal dynamics of weed growth.
 
 In our project, we bridge this gap by developing a **hybrid deep learning model** that integrates segmentation and time-series forecasting. Using the Moving Fields Weed Dataset (MFWD) and additional data sources, we combine convolutional neural networks (CNNs) with transformer-based modules to capture both spatial features and temporal evolution of weeds. Our model not only identifies weed species but also predicts their future growth, enabling data-driven and targeted weed management.
 
