@@ -10,17 +10,18 @@ In our project, we bridge this gap by developing a **hybrid deep learning model*
 
 We started with a broad set of questions on deep learning for weed growth prediction and, through iterative experimentation, refined them to focus on our hybrid approach. The final research questions are summarized in the table below:
 
-| Research Question | Explanation |
-|-------------------|-------------|
-| **Main Question:** How can a hybrid deep learning model that combines CNN encoders and transformer-based modules be optimized to predict future weed growth from temporal image data? | Focuses on integrating spatial feature extraction with temporal modeling for better predictions. |
-| How does using multiple sequential images affect the model’s accuracy compared to using a single image? | Investigates whether temporal context improves prediction accuracy. |
-| How do different data augmentation and preprocessing techniques impact the model’s performance? | Studies the effect of image transformations on robustness and accuracy. |
-| How effective are pre-trained CNNs (e.g., EfficientNet) in extracting important features for weed detection? | Evaluates the role of pre-trained models in generating reliable spatial features. |
-| How do the model’s predictions compare with traditional methods of measuring plant growth? | Provides a baseline comparison against established agronomic measurements. |
-| Does a transformer-based module better capture changes in weed growth over time compared to traditional CNNs? | Assesses the benefit of temporal encoding via transformers. |
-| What are the trade-offs between model accuracy and computational cost when using these hybrid methods? | Explores the balance between performance and resource efficiency. |
+| Research Question |
+|-------------------|
+| **Main Question:** How can a hybrid deep learning model that combines CNN encoders and transformer-based modules be optimized to predict future weed growth from temporal image data? |
+| How does using multiple sequential images affect the model’s accuracy compared to using a single image? |
+| How do different data augmentation and preprocessing techniques impact the model’s performance? |
+| How effective are pre-trained CNNs (e.g., EfficientNet) in extracting important features for weed detection? |
+| How do the model’s predictions compare with traditional methods of measuring plant growth? |
+| Does a transformer-based module better capture changes in weed growth over time compared to traditional CNNs? |
+| What are the trade-offs between model accuracy and computational cost when using these hybrid methods? |
 
-## Explanation of Research Questions
+
+## Rationale
 
 To guide our investigation, we refined our initial broad research questions into a focused set that specifically addresses the challenges of predicting weed growth using a hybrid deep learning model. At the heart of our inquiry is the need to optimize a model that integrates CNN-based spatial feature extraction with transformer-based temporal modeling. This primary question reflects our goal of combining robust image feature extraction with advanced time-series analysis, ensuring that the model can effectively forecast future weed growth based on past data.
 
