@@ -12,7 +12,7 @@ We started with a broad set of questions on deep learning for weed growth predic
 
 | **Main Research Question** |
 |-----------------------------|
-| How can a hybrid deep learning model that combines CNN encoders and transformer-based modules be optimized to predict future weed growth? (from temporal image data? |
+| How can a hybrid deep learning model that combines CNN encoders and transformer-based modules be optimized to predict future weed growth? (from temporal image data)? |
 
 | **Sub-questions** |
 |-------------------|
@@ -25,7 +25,7 @@ We started with a broad set of questions on deep learning for weed growth predic
 
 ## Rationale
 
-We narrowed down our research questions to focus on the challenge of predicting weed growth using a hybrid deep learning model. Our main aim is to improve a model that combines CNNs for learning spatial features with transformers for analyzing time-based data. This key question reflects our goal of linking advanced image analysis with time-series modeling to allow the model to accurately predict weed growth using past data.
+We narrowed down our research questions to focus on the challenge of predicting weed growth using a hybrid deep learning model. Our main aim is to improve a model that combines CNNs for learning spatial features with transformers for analyzing time-based data. This key question reflects our goal of linking image analysis with time-series modeling to allow the model to accurately predict weed growth using past data.
 
 Next, we focus on the role of temporal context by comparing the use of multiple sequential images with a single image. This helps us understand how adding time-related information improves the model's performance. Alongside this, we explore how different data augmentation and preprocessing methods can make the model more reliable, as changes in image transformations can impact results.
 
