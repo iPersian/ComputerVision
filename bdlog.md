@@ -37,20 +37,20 @@ Another focus is whether the transformer module performs better in capturing cha
 
 ### Data Preparation and Augmentation
 
-- **Dataset:**  
-  We use the Moving Fields Weed Dataset (MFWD), which provides temporal sequences of weed images and corresponding segmentation masks. Supplementary data sources help to enrich the training data.
+- **Dataset**  
+  We used the Moving Fields Weed Dataset (MFWD), which provides temporal sequences of weed images and corresponding segmentation masks. Supplementary data sources help to enrich the training data.
   
-- **Preprocessing:**  
+- **Preprocessing**  
   Images are resized, normalized, and augmented using techniques such as horizontal/vertical flips, random rotations, and transpositions. These augmentations help the model generalize better under varying field conditions.
 
 ### Model Architecture
 
 Our hybrid model integrates two key modules:
 
-1. **CNN Encoder:**  
+1. **CNN Encoder**  
    We use pre-trained architectures like EfficientNet and a UNet-like encoder to extract robust spatial features from each image. The encoder outputs feature maps that capture the intricate details of weed structures.
 
-2. **Transformer-based Temporal Module:**  
+2. **Transformer-based temporal module:**  
    To model the temporal evolution of weed growth, we adopt a custom Vision Transformer (ViT) module. This module receives a sequence of feature vectors (one per image in a temporal sequence) and employs temporal positional encoding to capture time-dependent changes. The combined features are then passed to a decoder that reconstructs future weed growth predictions.
 
 Below is a simplified code snippet from our new Python notebook illustrating the temporal module:
