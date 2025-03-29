@@ -10,9 +10,9 @@ device = 'cuda'
 test_img = val_ds[random.randint(0, len(val_ds) - 1)][0].to(device)
 to_pil = transforms.ToPILImage()
 
-model = model.Network().to(device)
+model = model.UNet().to(device)
 model.eval()
-checkpoint = torch.load('epoch_34.pth')
+checkpoint = torch.load('UNet.pth')
 model.load_state_dict(checkpoint['model_state'])
 
 prediction = torch.round(model(test_img.unsqueeze(0)).squeeze(0))

@@ -21,7 +21,7 @@ class DoubleConv(nn.Module):
 class Downward(nn.Module):
     def __init__(self):
         super(Downward, self).__init__()
-        self.conv1 = DoubleConv(1, 16)
+        self.conv1 = DoubleConv(4, 16)
         self.conv2 = DoubleConv(16, 32)
         self.conv3 = DoubleConv(32, 64)
         self.conv4 = DoubleConv(64, 128)

@@ -42,13 +42,12 @@ print("Loading...")
 epochs = 5
 criterion = IoULoss().to(device)
 lr = 1e-3
-model = Network().to(device)
+model = UNet().to(device)
 optimizer = AdamW(model.parameters(), lr)
 
 dataloader = DataLoader(get_training_ds(), batch_size=8, shuffle=True)
 
 print("Starting...")
-checkpoint = torch.load('epoch_29.pth')
 
 for epoch in tqdm(range(0, 35)):
     train_loss = train(model, dataloader, criterion, optimizer, epoch)
