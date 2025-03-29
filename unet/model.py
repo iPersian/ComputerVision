@@ -100,7 +100,7 @@ class Upward(nn.Module):
 
 class UNet(nn.Module):
     def __init__(self):
-        super(TestCustomUNet, self).__init__()
+        super(UNet, self).__init__()
         self.up = Upward()
         self.down = Downward()
 
