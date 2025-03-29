@@ -49,13 +49,12 @@ dataloader = DataLoader(get_training_ds(), batch_size=8, shuffle=True)
 
 print("Starting...")
 checkpoint = torch.load('epoch_29.pth')
-model.load_state_dict(checkpoint['model_state'])
-optimizer.load_state_dict(checkpoint['optimizer_state'])
 
-for epoch in tqdm(range(30, 35)):
+for epoch in tqdm(range(0, 35)):
     train_loss = train(model, dataloader, criterion, optimizer, epoch)
     print(f'Train loss epoch {epoch}: {train_loss}')
-    state = dict(model_state=model.state_dict(), optimizer_state=optimizer.state_dict())
-    torch.save(state, f'epoch_{epoch}.pth')
+
+state = dict(model_state=model.state_dict(), optimizer_state=optimizer.state_dict())
+torch.save(state, f'UNet.pth')
 
 print('Finished Training')
