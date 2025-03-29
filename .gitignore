@@ -1,9 +1,10 @@
 /jpegs
 /jpegs_small
 #/masks_small
+*/.ipynb_checkpoints
 /.ipynb_checkpoints
 *.pth
 */runs
-.idea/*
+*/.idea/*
 *.zip
 */__pycache__
