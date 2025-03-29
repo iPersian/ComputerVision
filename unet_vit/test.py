@@ -12,7 +12,7 @@ to_pil = transforms.ToPILImage()
 
 model = model.Network().to(device)
 model.eval()
-checkpoint = torch.load('epoch_29.pth')
+checkpoint = torch.load('epoch_34.pth')
 model.load_state_dict(checkpoint['model_state'])
 
 prediction = torch.round(model(test_img.unsqueeze(0)).squeeze(0))
