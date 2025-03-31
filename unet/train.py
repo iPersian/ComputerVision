@@ -54,6 +54,6 @@ for epoch in tqdm(range(0, 35)):
     print(f'Train loss epoch {epoch}: {train_loss}')
 
 state = dict(model_state=model.state_dict(), optimizer_state=optimizer.state_dict())
-torch.save(state, f'UNet.pth')
+torch.save(state, f'UNet_35.pth')
 
 print('Finished Training')
