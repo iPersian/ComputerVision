@@ -6,6 +6,8 @@ import numpy as np
 import torch
 import pandas as pd
 
+version = "_4_1"
+# version = "_4_4"
 
 class CustomDataset(Dataset):
     def __init__(self, df, transforms):
@@ -54,9 +56,9 @@ val_transform = a.Compose([
     ])
 
 
-training_ds = CustomDataset(pd.read_csv("../dataset_4_1/train_4_1.csv"), train_transform)
-test_ds = CustomDataset(pd.read_csv("../dataset_4_1/test_4_1.csv"), train_transform)
-val_ds = CustomDataset(pd.read_csv("../dataset_4_1/val_4_1.csv"), val_transform)
+training_ds = CustomDataset(pd.read_csv(f"../dataset{version}/train{version}.csv"), train_transform)
+test_ds = CustomDataset(pd.read_csv(f"../dataset{version}/test{version}.csv"), train_transform)
+val_ds = CustomDataset(pd.read_csv(f"../dataset{version}/val{version}.csv"), val_transform)
 
 
 def get_training_ds():

@@ -7,7 +7,9 @@ import torch
 import pandas as pd
 
 version = "_1_1"
-
+# version = "_1_4"
+# version = "_1_8"
+# version = "_1_12"
 class CustomDataset(Dataset):
     def __init__(self, df, transforms):
         self.df = df

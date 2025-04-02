@@ -11,7 +11,7 @@ X = []
 Y = []
 
 dt = 4 # Past images
-dl = 4 # Future images to predict
+dl = 12 # Future images to predict
 
 for folder in mask_p.glob("*/*"):
     imgs = list(folder.glob("*"))

@@ -4,7 +4,7 @@ from torch.optim import AdamW
 from tqdm import tqdm
 from model import *
 from torch.utils.data import Dataset, DataLoader
-from dataset import get_training_ds
+from dataset import get_training_ds, version
 from torch.utils.tensorboard import SummaryWriter
 
 device = 'cuda'
@@ -54,6 +54,6 @@ for epoch in tqdm(range(0, epochs)):
     print(f'Train loss epoch {epoch}: {train_loss}')
 
 state = dict(model_state=model.state_dict())
-torch.save(state, f'UNet_30.pth')
+torch.save(state, f'UNet_{epochs}{version}.pth')
 
 print('Finished Training')
