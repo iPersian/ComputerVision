@@ -42,4 +42,4 @@ dataloader = DataLoader(get_val_ds(), batch_size=8, shuffle=True)
 print("Starting...")
 
 val_loss = train(model, dataloader, criterion)
-print(f'Validation dataset loss: {val_loss}')
+print(f'Validation dataset loss: {1 - val_loss}')

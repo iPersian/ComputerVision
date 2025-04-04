@@ -4,7 +4,7 @@ from torch.optim import AdamW
 from tqdm import tqdm
 from model import *
 from torch.utils.data import DataLoader
-from dataset import get_training_ds, get_val_ds
+from dataset import get_training_ds, get_val_ds, version
 
 device = 'cuda'
 
@@ -34,7 +34,7 @@ print("Loading validation...")
 criterion = IoULoss().to(device)
 model = Network().to(device)
 model.eval()
-checkpoint = torch.load('epoch_34_model_only.pth')
+checkpoint = torch.load(f'epoch_30{version}.pth')
 model.load_state_dict(checkpoint['model_state'])
 
 dataloader = DataLoader(get_val_ds(), batch_size=8, shuffle=True)
@@ -42,4 +42,4 @@ dataloader = DataLoader(get_val_ds(), batch_size=8, shuffle=True)
 print("Starting...")
 
 val_loss = train(model, dataloader, criterion)
-print(f'Validation dataset loss: {val_loss}')
+print(f'Validation dataset loss: {1 - val_loss}')

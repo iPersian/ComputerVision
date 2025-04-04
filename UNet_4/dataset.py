@@ -6,8 +6,8 @@ import numpy as np
 import torch
 import pandas as pd
 
-version = "_4_1"
-# version = "_4_4"
+# version = "_4_1"
+version = "_4_4"
 # version = "_4_8"
 # version = "_4_12"
 class CustomDataset(Dataset):

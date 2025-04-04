@@ -93,7 +93,7 @@ val_ds = pd.read_csv(f"../dataset{version}/val{version}.csv")
 def _load_image(path):
     return to_tensor(Image.open(Path("../") / path))
 
-inputs_p, label_p = val_ds.iloc[random.randint(0, len(val_ds) - 1)]
+inputs_p, label_p = val_ds.iloc[78]
 label = _load_image(Path(label_p))
 inputs = _load_image(Path(inputs_p)).to(device)
 

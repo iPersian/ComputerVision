@@ -6,9 +6,7 @@ import random
 import model
 import matplotlib.pyplot as plt
 from pathlib import Path
-from tkinter import filedialog
 import pandas as pd
-import numpy as np
 
 device = 'cuda'
 
@@ -20,7 +18,7 @@ val_ds = pd.read_csv(f"../dataset{version}/val{version}.csv")
 def _load_image(path):
     return to_tensor(Image.open(Path("../") / path))
 
-inputs_p, label_p = val_ds.iloc[random.randint(0, len(val_ds) - 1)]
+inputs_p, label_p = val_ds.iloc[42]
 inputs_p = inputs_p.split(",")
 label = _load_image(Path(label_p))
 inputs = [_load_image(Path(img)) for img in inputs_p]
@@ -35,7 +33,7 @@ label_rgb = _load_image(Path(label_p.replace("masks_small", "jpegs_small")).with
 
 model = model.Network().to(device)
 model.eval()
-checkpoint = torch.load(f'epoch_34_model_only.pth')
+checkpoint = torch.load(f'epoch_30{version}.pth')
 model.load_state_dict(checkpoint['model_state'])
 
 prediction = torch.round(model(inputs.unsqueeze(0)).squeeze(0))
