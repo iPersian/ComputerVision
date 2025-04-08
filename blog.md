@@ -193,4 +193,7 @@ This project is a preliminary investigation of utilizing the versatile transform
 
 ## Contributions
 Maosheng: Writing blog, implementing & training growth prediction models using transformers.
+
 Artin: Preparing Kaggle notebook, data split, running with different epochs & saving outputs, blog support.
+
+
