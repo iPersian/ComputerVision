@@ -55,16 +55,25 @@ We have utilized the Moving Fields Weed Dataset (MFWD) by Genze et al. [[14](#14
 
 The MFWD dataset contains 2847 high-resolution images, where all images are sequentially taken and timestamped. The interval of the taken images are 12 hours on average, which means roughly two images per day. In this work, we will try to estimate the future growth of images based on this timestamp, i.e. if we want to predict 4 timestamps in the future, then this means that we predict roughly 2 days into the future.
 
+An example of a part the dataset is shown below:
+![dataset](https://i.imgur.com/YXUgMEa.png)
+This visualizes a sample of the temporal sequential ARTVU weed species. The grow is from left to right and top to bottom.
+
 ### Obtaining masks
-The majority part of the MFWD dataset contains high-resolution RGB images, and only a few hand-crafted segmentation masks. Due to the tedious process of manually creating segmentation masks, we leveraged a key property of the RGB images to automatically extract binary masks from the RGB images. Because the images are all taken in trays of brown soil with green weed on top, we can distinguish the weed by thresholding the images in the HSV color space.
+The majority part of the MFWD dataset contains high-resolution RGB images, and only a few hand-crafted segmentation masks. Due to the tedious process of manually creating segmentation masks, we leveraged a key property of the RGB images to automatically extract binary masks from the RGB images. Because the images are all taken in trays of brown soil with green weed on top, we can distinguish the weed by thresholding the images in the HSV color space. Finally, we apply a bilateral filter on the resulting mask to smooth out the result.
 
 After manually tuning the threshold, we find that the following threshold values work the best:
 
 Table 1: Our fine tuned HSV thresholds for automatic binary mask generation.
-| |Hue| Saturation | Value |
+| |Hue| Saturation | Value | 
 |-------- | -------- | -------- | -------- |
 |Min| 30 | 87 | 86 |
 |Max| 50 | 255 | 255 |
+
+An Example of the HSV thresholding is shown below:
+![Example of HSV thresholding](https://i.imgur.com/pwk2UI1.png)
+
+The first column depicts the raw RGB image. The second column depicts the binary mask using HSV thresholding. The third and last column shows the binary mask after applying the cv2 biletaralfilter with d=20, sigmaColor=121, and sigmaSpace=34.
 
 ### Models
 In this work, we propose a transformer based model which takes into account past binary masks of weed to estimate future binary masks of weed. To compare our model against other simpler baselines: a simplified UNet model that performs segmentation based on a single image, and a simplified UNet model that performs segmentation based on past images.
@@ -111,6 +120,47 @@ Because the models produce binary masks only, we utilize the Jaccard Index or In
 
 ### Evaluation
 Since our outputs are binary masks representing the estimated weed growth, we utilize the accuracy given by the IoU metric to evaluate our prediction against the ground truth binary masks.
+
+## Model 2: Estimating Time Until Full Weed Growth
+
+While Model 1 focused on predicting the shape and size of future weed growth using segmentation masks, Model 2 takes a different perspective: how fast will a weed grow to full maturity?
+
+This is a regression-based approach, designed to estimate the time remaining until a weed reaches full growth, based on a sequence of RGB images over time.
+
+### Why This Matters
+
+In real-world agriculture, understanding not just how a weed will grow, but also how fast, is crucial. Fast-growing weeds can outcompete crops very quickly, and early intervention could save yields. Model 2 fills this predictive gap by focusing on growth speed estimation.
+
+### Model Architecture
+
+- **Input:** Sequence of up to 15 RGB images of a weed, taken over time  
+- **Feature Extractor:** EfficientNet-B0 – chosen for its lightweight yet powerful ability to extract features from high-resolution images  
+- **Temporal Modeling:** LSTM – a type of recurrent neural network that captures how the weed visually evolves across time  
+- **Output:** A single scalar – the logarithm of the estimated number of days until the weed reaches full growth  
+- **Loss Function:** Quantile Loss – which helps the model provide robust estimates across different growth trajectories
+
+### Training Highlights
+
+- The model was trained using sequences from the Moving Fields Weed Dataset (MFWD), focusing on species such as ARTVU and THLAR  
+- We trained on sequences of varying lengths to understand how much past visual information improves the regression accuracy  
+- The EfficientNet layer was pretrained to help with limited dataset sizes and reduce overfitting
+
+### What It Learns
+![Model2](https://i.imgur.com/fqkgMY2.png)
+
+Instead of segmenting the weed’s shape, this model learns visual cues associated with maturity, such as color saturation, leaf spread, and texture evolution. By observing these over time, the model can predict the number of days remaining until the weed is fully grown.
+
+### How Model 2 Complements Model 1
+
+| Goal | Model 1 | Model 2 |
+|------|---------|---------|
+| Predict **what** the weed will look like | Yes (Segmentation Mask) | No |
+| Predict **when** it will reach full growth | No | Yes (Regression Output) |
+| Uses segmentation masks | Yes | No |
+| Uses RGB images | No | Yes |
+
+By combining both models, we unlock the potential for a smarter weed management system: knowing where and how much the weed will grow, and how urgently it needs to be dealt with.
+
 
 ## Experimental Setup
 In this section, we will provide a brief summary of the implementation details of the models.
@@ -193,5 +243,4 @@ This project is a preliminary investigation of utilizing the versatile transform
 
 ## Contributions
 Maosheng: Writing blog, implementing & training growth prediction models using transformers.
-
 Artin: Preparing Kaggle notebook, data split, running with different epochs & saving outputs, blog support.
